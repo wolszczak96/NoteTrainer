@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link href="styles/stylesheet.css" type="text/css" rel="stylesheet" />
+  <title>NoteTrainer</title>
+</head>
+<body>
+  <div id="panel"></div>
+  <div id="container">
+    <div id="staff"></div>
+    <template id="component-template" type="x-handlebars-template">
+      <div style="left:{{left}};top:{{top}};">
+        <img src="{{image}}" draggable=false />
+      </div>
+    </template>
+    <template id="sign-template" type="x-handlebars-template">
+      <img src="{{image}}" draggable="false" />
+    </template>
+    <div id="control">
+      <div class=score-container id="score1">
+        <div class=score-holder id="score-good">0</div>
+        <div class="score-text">Good</div>
+      </div>
+      <div class=score-container id="score2">
+        <div class="score-holder" id="score-bad">0</div>
+        <div class="score-text">Bad</div>
+      </div>
+      <div id="controls">
+        <div id="clef-choice">
+          <h4 style="margin:0">Clef:</h4>
+          <div class="button" onclick="chooseClef(event, 0)">Treble</div>
+          <div class="button" onclick="chooseClef(event, 1)">Bass</div>
+          <div class="button clef-chosen" onclick="chooseClef(event, undefined)">Both</div>
+        </div>
+        <div id="sign-choice">
+          <h4 style="margin:0;display:inline;">Max key signs number:</h4>
+          <select id="key-sign" onchange="setMaxKeySign()">
+            <option value=0>0</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6 selected>6</option>
+          </select>
+        </div>
+        <div>
+          <input id="accidentals" type="checkbox" checked onchange="accidentalsChange(event)"> accidentals
+        </div>
+      </div>
+    </div>
+    <template id="bad-choice-template">
+      <div id="bad-choice">
+        <h4 style="margin:0">Wrong!</h4>
+        The correct answer is: <br/>
+        {{answer}}
+        <div class="button" onclick="closeWrong()">Next</div>
+      </div>
+    </template>
+    <div id="keyboard"></div>
+    <template id="keywhite" type="x-handlebars-template">
+      <div id="key{{number}}" class="key" style="left:{{pos}};top:2px">
+        <img src="media/keywhite.png" draggable="false" width="19px" onclick="answer({{number}})" />
+      </div>
+    </template>
+    <template id="keyblack" type="x-handlebars-template">
+      <div id="key{{number}}" class="key" style="padding: 0 1px 1px 1px;left:{{pos}};top:2px">
+        <img src="media/keyblack.png" draggable="false" width="9px" onclick="answer({{number}})" />
+      </div>
+    </template>
+  </div>
+</body>
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/handlebars.js"></script>
+<script type="text/javascript" src="scripts/randomizer.js"></script>
+<script type="text/javascript" src="scripts/keyboard.js"></script>
+
+</html>
