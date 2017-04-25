@@ -7,7 +7,7 @@ export default class Main extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      content: <NoteTrainer />
+      content: 'notetrainer'
     }
     this.showContent = this.showContent.bind(this)
   }
@@ -19,13 +19,20 @@ export default class Main extends React.Component {
   }
 
   render() {
+    let content = undefined
+    switch(this.state.content) {
+      case 'notetrainer':
+        content = (
+          <NoteTrainer />
+        )
+    }
     return (
       <div>
         <Panel
           chooseContent={this.showContent}
         />
         <Content>
-          {this.state.content}
+          {content}
         </Content>
       </div>
     )

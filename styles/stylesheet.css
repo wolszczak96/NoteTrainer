@@ -12,6 +12,7 @@ div {
   background-color: skyblue;
   position: fixed;
   top: 0;
+  z-index: 1000;
 }
 
 .container {
@@ -112,9 +113,15 @@ div {
   background-color: skyblue;
 }
 
+.clef-buttons {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
 .bad-choice {
   background-color: red;
   padding: 10px;
+  overflow: auto;
   clear: both;
 }
 
@@ -123,20 +130,24 @@ div {
   height: 123px;
   background-color: black;
   position: relative;
-  padding: 2px 0 2px 1px;
+  padding: 2px 1px;
 }
 
 .keyWhite {
   background-image: url("../media/keywhite.png");
   background-size: 19px;
   display: inline-block;
-  margin-right: 1px;
   width: 19px;
   height: 119px;
   cursor: pointer;
 }
 
-.keyHolder {
+.keyWhiteHolder {
+  display: inline-block;
+  padding-right: 1px;
+}
+
+.keyBlackHolder {
   position: absolute;
   background-color: black;
   padding: 0 1px 1px 1px

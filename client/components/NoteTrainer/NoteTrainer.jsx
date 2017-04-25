@@ -16,6 +16,13 @@ export default class NoteTrainer extends React.Component {
     this.setAnswer = this.setAnswer.bind(this)
     this.checkAnswer = this.checkAnswer.bind(this)
     this.failureHandler = this.failureHandler.bind(this)
+    this.requestNote = this.requestNote.bind(this)
+  }
+
+  requestNote() {
+    this.setState({
+      needNewNote: true
+    })
   }
 
   setAnswer(midiValue) {
@@ -73,6 +80,7 @@ export default class NoteTrainer extends React.Component {
           needNewNote={this.state.needNewNote}
           lock={this.state.lock}
           failureHandler={this.failureHandler}
+          alertChange={this.requestNote}
         />
         {answerTool}
       </div>

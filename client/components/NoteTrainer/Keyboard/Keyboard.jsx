@@ -6,6 +6,7 @@ const Keyboard = props => {
   for(let i=29; i<=95; i++) {
     const color = !props.active && props.correct === i ? 'correctWhite' :
       !props.active && props.wrong === i ? 'wrongWhite' : ''
+    const spacer = i !== 95 ? true : false
     whiteKeys.push(
       <Key
         key={Math.random()}
@@ -14,6 +15,7 @@ const Keyboard = props => {
         keyType='keyWhite'
         sendAnswer={props.sendAnswer}
         color={color}
+        spacer={spacer}
       />
     )
     if(i%12 !== 4 && i%12 !== 11) i+=1

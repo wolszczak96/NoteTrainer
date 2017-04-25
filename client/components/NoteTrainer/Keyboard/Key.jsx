@@ -31,7 +31,7 @@ export default class Key extends React.Component {
   render() {
     if(this.props.keyType === 'keyBlack') {
       return (
-        <div className='keyHolder' style={{left: this.props.left, top: '2px'}}>
+        <div className='keyBlackHolder' style={{left: this.props.left, top: '2px'}}>
           <div
             className={`${this.props.keyType} ${this.state.color} ${this.props.active ? '' : 'deactivated'}`}
             onClick={this.props.active ? this.sendAnswer : undefined}
@@ -41,7 +41,19 @@ export default class Key extends React.Component {
         </div>
       )
     }
-    else return (
+    if(this.props.spacer) {
+      return (
+        <div className='keyWhiteHolder'>
+          <div
+            className={`${this.props.keyType} ${this.state.color} ${this.props.active ? '' : 'deactivated'}`}
+            onClick={this.props.active ? this.sendAnswer : undefined}
+            onMouseEnter={this.props.active ? this.activateKey : undefined}
+            onMouseLeave={this.props.active ? this.deactivateKey : undefined}
+          />
+        </div>
+      )
+    }
+    return (
       <div
         className={`${this.props.keyType} ${this.state.color} ${this.props.active ? '' : 'deactivated'}`}
         onClick={this.props.active ? this.sendAnswer : undefined}

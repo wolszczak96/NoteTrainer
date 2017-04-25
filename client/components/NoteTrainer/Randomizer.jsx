@@ -18,6 +18,9 @@ export default class Randomizer extends React.Component {
     this.randomizeNote = this.randomizeNote.bind(this)
     this.createKeySign = this.createKeySign.bind(this)
     this.createAdditionalLines = this.createAdditionalLines.bind(this)
+    this.chooseClef = this.chooseClef.bind(this)
+    this.chooseMaxKey = this.chooseMaxKey.bind(this)
+    this.chooseAccidentals = this.chooseAccidentals.bind(this)
   }
 
   componentWillMount() {
@@ -26,6 +29,27 @@ export default class Randomizer extends React.Component {
 
   componentDidUpdate() {
     if(this.props.needNewNote) this.randomizeNote()
+  }
+
+  chooseClef(value) {
+    this.setState({
+      clef: value
+    })
+    this.props.alertChange()
+  }
+
+  chooseMaxKey(e) {
+    this.setState({
+      maxKey: parseInt(e.target.value)
+    })
+    this.props.alertChange()
+  }
+
+  chooseAccidentals(e) {
+    this.setState({
+      accidentals: e.target.checked
+    })
+    this.props.alertChange()
   }
 
   random(min, max) {
@@ -175,6 +199,12 @@ export default class Randomizer extends React.Component {
           lock={this.props.lock}
           correctAnswer={this.state.currentAnswerText}
           failureHandler={this.props.failureHandler}
+          chooseClef={this.chooseClef}
+          clef={this.state.clef}
+          chooseMaxKey={this.chooseMaxKey}
+          maxKey={this.state.maxKey}
+          chooseAccidentals={this.chooseAccidentals}
+          accidentals={this.state.accidentals}
         />
       </div>
     )
