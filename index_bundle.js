@@ -9954,7 +9954,13 @@ var Keyboard = function Keyboard(props) {
     'div',
     { className: 'keyboard' },
     whiteKeys,
-    blackKeys
+    blackKeys,
+    _react2.default.createElement('img', { className: 'hidden', src: 'media/keywhiteactive.png' }),
+    _react2.default.createElement('img', { className: 'hidden', src: 'media/keyblackactive.png' }),
+    _react2.default.createElement('img', { className: 'hidden', src: 'media/keywhitecorrect.png' }),
+    _react2.default.createElement('img', { className: 'hidden', src: 'media/keyblackcorrect.png' }),
+    _react2.default.createElement('img', { className: 'hidden', src: 'media/keywhitewrong.png' }),
+    _react2.default.createElement('img', { className: 'hidden', src: 'media/keyblackwrong.png' })
   );
 };
 
@@ -10662,7 +10668,11 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Logo = function Logo() {
-  return _react2.default.createElement('div', { className: 'logo' });
+  return _react2.default.createElement(
+    'div',
+    { className: 'logo' },
+    'Note Trainer'
+  );
 };
 
 exports.default = Logo;

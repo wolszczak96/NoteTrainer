@@ -46,6 +46,12 @@ const Keyboard = props => {
     <div className='keyboard'>
       {whiteKeys}
       {blackKeys}
+      <img className='hidden' src='media/keywhiteactive.png' />
+      <img className='hidden' src='media/keyblackactive.png' />
+      <img className='hidden' src='media/keywhitecorrect.png' />
+      <img className='hidden' src='media/keyblackcorrect.png' />
+      <img className='hidden' src='media/keywhitewrong.png' />
+      <img className='hidden' src='media/keyblackwrong.png' />
     </div>
   )
 }
